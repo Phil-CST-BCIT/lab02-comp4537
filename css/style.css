@@ -1,0 +1,92 @@
+body {
+	height: 100%;
+    background: #5D6AF3;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header{
+    position: fixed;
+    top: 70px;
+}
+
+h1{
+    font-size: 5em;
+}
+
+button{
+    position: relative;
+    top: 300px;
+	margin: 20px;
+    padding: 20px 40px;
+    background-color: #f0f0f0;
+	border: solid 2px black;
+    cursor: pointer;
+    color: #444;
+    font-size: large;
+}
+
+.back-btn{
+    position: fixed;
+    top: 20px;
+    left: 200px;
+}
+
+/* #form{
+    width: 90%;
+} */
+
+label {
+    color: blanchedalmond;
+    font-size: larger;
+}
+
+.problem{
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.options{
+    width: 100%;
+    margin-top: 15px;
+
+}
+
+input[type=radio] {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+
+input[type=text] {
+    margin-left: 15px;
+    line-height: 2em; 
+    width: 85%;
+}
+
+input{
+    margin-bottom: 20px;
+}
+
+.sub-btn {
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #555555;
+  }
+
+button:hover, .back-btn:hover, .sub-btn:hover {
+    background-color: #555555;
+    color: white;
+}
+
+
+
