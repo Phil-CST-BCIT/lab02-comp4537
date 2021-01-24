@@ -1,4 +1,5 @@
-// const item = {
+// item structure:
+// {
 //     id: 1,
 //     problem: "1 + 1 = ",
 //     options: {
@@ -89,6 +90,7 @@ function whichChkd() {
 // returns an Item object
 function createItem() {
 
+    let item;
     let chkd = whichChkd();
     let answers = []; // stores 4 answers of a question, e.g. ( blah blah... )
     let opts = []; // stores 4 options of a question, e.g. ( A. blah blah.... )
@@ -110,14 +112,17 @@ function createItem() {
 
         ++id;
 
-        let item = new Item(id, problem, options, chkd["opt"]);
+        item = new Item(id, problem, options, chkd["opt"]);
 
-        console.log(problem);
-        console.log(answerA);
-        console.log(item);
+        // console.log(problem);
+        // console.log(answerA);
+        // console.log(item);
 
         return item;
+    } else {
+        return null;
     }
+
 }
 
 // displays a quiz question above the form
@@ -132,7 +137,6 @@ function viewMCQ(item) {
     for (var i = 0; i < NUM_OF_OPTIONS; ++i) {
         res = String.fromCharCode(97 + i);
         ax[i] = item["options"][res]['answer'];
-        console.log(ax[i]);
     }
     
     let e = document.getElementById("box");
@@ -197,7 +201,17 @@ function addBtnHandler() {
     let k = id.toString();
     localStorage.setItem(k, JSON.stringify(item));
     const q = localStorage.getItem("q");
-    viewMCQ(item);
+    if(item 
+        && item.problem
+        && item.options.a.answer
+        && item.options.b.answer
+        && item.options.c.answer
+        && item.options.d.answer) {
+        console.log(item);
+        viewMCQ(item);
+    } else {
+        window.alert("Enter question and answers");
+    }
 
     // this is a bad way for clearing all the fields
     // we can use a loop to clear it.
@@ -206,6 +220,22 @@ function addBtnHandler() {
     document.getElementById("answerB").value = "";
     document.getElementById("answerC").value = "";
     document.getElementById("answerD").value = "";
+
+}
+
+function delBtnHandler() {
+    let e = document.getElementById("box");
+    let sibling = e.lastElementChild.previousElementSibling;
+
+    if(sibling){
+        sibling.remove();
+
+        // let parent = document.getElementById(parentID);
+        // element.parentNode.removeChild(element);
+    
+    } else {
+        window.alert("No question for delete");
+    }
 
 }
 
