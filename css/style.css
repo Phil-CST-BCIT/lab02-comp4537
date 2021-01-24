@@ -3,7 +3,8 @@ body {
     background: #5D6AF3;
     display: flex;
 	justify-content: center;
-	align-items: center;
+    align-items: center;
+    color:blanchedalmond;
 }
 
 header{
@@ -99,5 +100,9 @@ button:hover,
     color: white;
 }
 
+
+ul{
+    list-style-type: none; 
+}
 
 

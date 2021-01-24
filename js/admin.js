@@ -63,21 +63,21 @@ function whichChkd() {
         opts[i] = document.getElementById(id).checked;
     }
       
-    if(optA){
+    if(opts[0]){
         console.log("A");
-        return {opt: "A", chkd: optA};
+        return {opt: "A", chkd: opts[0]};
     }
-    else if(optB){
+    else if(opts[1]){
         console.log("B");
-        return {opt: "B", chkd: optB};
+        return {opt: "B", chkd: opts[1]};
     }
-    else if(optC){
+    else if(opts[2]){
         console.log("C");
-        return {opt: "C", chkd: optC};
+        return {opt: "C", chkd: opts[2]};
     }
-    else if(optD){
+    else if(opts[3]){
         console.log("D");
-        return {opt: "D", chkd: optD};
+        return {opt: "D", chkd: opts[3]};
     }
     else {
         window.alert("A key must be assigned");
@@ -132,6 +132,7 @@ function viewMCQ(item) {
     for (var i = 0; i < NUM_OF_OPTIONS; ++i) {
         res = String.fromCharCode(97 + i);
         ax[i] = item["options"][res]['answer'];
+        console.log(ax[i]);
     }
     
     let e = document.getElementById("box");
@@ -140,9 +141,17 @@ function viewMCQ(item) {
     if(sibling){
         console.log(sibling);
 
-        sibling.insertAdjacentHTML("afterend", "<div><p>" + problem + "</p></div>");
+        sibling.insertAdjacentHTML("afterend", 
+                                    "Question: <br/><div>"
+                                    + "<p>" + problem + ": </p>" 
+                                    + "<p>A. " + ax[0]  + "</p>" 
+                                    + "<p>B. " + ax[1]  + "</p>" 
+                                    + "<p>C. " + ax[2]  + "</p>" 
+                                    + "<p>D. " + ax[3]  + "</p>" 
+                                    + "</div>");
 
     } else {
+
         /**
          * structure we need to dynamically create
          *  <div>
