@@ -13,45 +13,32 @@
         </a>
     </div>
 
- 
-
     <div id="box">
-        <div>
-            <p>hello</p>
-            <p>hello</p>
-            <p>hello</p>
-            <p>hello</p>
-            <p>hello</p>
-        </div>
-        <div>
-            <p>world</p>
-            <p>world</p>
-            <p>world</p>
-            <p>world</p>
-            <p>world</p>
-        </div>
-        <div>
-            <form id="item">
+        
+        <div id="item">
             <label>Question: </label>
-            <textarea class="problem" autofocus="autofocus" rows="10" cols="50"></textarea>
+            <textarea id="problem" autofocus="autofocus" rows="10" cols="50"></textarea>
             <label>Answers: </label>
             <div class="options">
-                <input class="mc" type="radio" name="alt">
-                <input class="answer" type="text">
+                <input id="optA" class="mc" type="radio" name="alt">
+                <input id="answerA" class="answer" type="text">
                 <br/>
-                <input class="mc" type="radio" name="alt">
-                <input class="answer" type="text" >
+                <input id="optB" class="mc" type="radio" name="alt">
+                <input id="answerB" type="text" >
                 <br/>
-                <input class="mc" type="radio" name="alt">
-                <input class="answer" type="text">
+                <input id="optC" class="mc" type="radio" name="alt">
+                <input id="answerC" type="text">
                 <br/>
-                <input class="mc" type="radio" name="alt">
-                <input class="answer" type="text">
+                <input id="optD" class="mc" type="radio" name="alt">
+                <input id="answerD" type="text">
             </div>
-            <input class="sub-btn" type="submit" value="Add">
-            <input class="sub-btn" type="submit" value="Save Changes">
-            <input class="sub-btn" type="submit" value="Delete">
-            </form>
+            <div id="group-btns">            
+                <button id="add">Add</button>
+                <button id="save">save</button>
+                <button id="delete">Delete</button>
+            </div>
+
+
         </div>
         
     </div>
