@@ -1,83 +1,46 @@
-    // for (i = 1; i <= 5; i++){
-        
-    //     let question = JSON.parse(localStorage.getItem(i));
-    //     let q = document.createElement("p");
-    //     q.innerHTML = question.problem;
-    //     document.body.appendChild(q)
-        
-    //     for(j = 1; j <= 4 ; j++){
-    //         if (j ==1){
-    //             let qOption = question.options.a.answer;
-    //             let radio = document.createElement("input");
-    //             radio.setAttribute("class", "q" + i);
-    //             radio.setAttribute("value", "A");
-    //             radio.setAttribute("type", "radio");
-    //             let lable = document.createElement("lable");
-    //             lable.innerHTML = qOption
-    //             document.body.appendChild(radio);
-    //             document.body.appendChild(lable);
-    //             let br = document.createElement("br")
-    //             document.body.appendChild(br);
+// an array for storing the javascript object Item, which is defined in admin.js
+let items = [];
 
-    //         }
-    //         if (j ==2){
-    //             let qOption = question.options.b.answer;
-    //             let radio = document.createElement("input");
-    //             radio.setAttribute("class", "q" + i);
-    //             radio.setAttribute("value", "B" );
-    //             radio.setAttribute("type", "radio");
-    //             let lable = document.createElement("lable");
-    //             lable.innerHTML = qOption
-    //             document.body.appendChild(radio);
-    //             document.body.appendChild(lable);
-    //             let br = document.createElement("br")
-    //             document.body.appendChild(br);
-    //         }
-    //         if (j ==3){
-    //             let qOption = question.options.c.answer;
-    //             let radio = document.createElement("input");
-    //             radio.setAttribute("class", "q" + i);
-    //             radio.setAttribute("value", "C");
-    //             radio.setAttribute("type", "radio");
-    //             let lable = document.createElement("lable");
-    //             lable.innerHTML = qOption
-    //             document.body.appendChild(radio);
-    //             document.body.appendChild(lable);
-    //             let br = document.createElement("br")
-    //             document.body.appendChild(br);
-    //         }
-    //         if (j== 4){ 
-    //             let qOption = question.options.d.answer;
-    //             let radio = document.createElement("input");
-    //             radio.setAttribute("class", "q" + i);
-    //             radio.setAttribute("value", "D");
-    //             radio.setAttribute("type", "radio");
-    //             let lable = document.createElement("lable");
-    //             lable.innerHTML = qOption
-    //             document.body.appendChild(radio);
-    //             document.body.appendChild(lable);
-    //             let br = document.createElement("br")
-    //             document.body.appendChild(br);
-    //             document.body.appendChild(br);
-    //             document.body.appendChild(br);
-    //         }
-    //     }
+// reads localStorage and parse the JSON objects in the storage
+function getItems() {
 
-    // function checkAsn(){
-    //     let score = 0;
-    //     for (i =1 ; i <= 5; i ++){
-    //         let question = JSON.parse(localStorage.getItem(1));
-    //         console.log(question.key);
-    //         let radios = document.getElementsByClassName("q" + i);
-    //         for (var j = 0, length = radios.length; j < length; j++) {
-    //             if (radios[j].checked && question.key == radios[j].value) {
-    //                 score++;
-    //               break;
-    //             }        
-    //         }
-    //     }
-    //     alert(score);
+    for(let i = 0; i < localStorage.length; ++i) {
+        items[i] = JSON.parse(localStorage.getItem(i+1));
+        // console.log(items[i]);
+    }
 
-    // };
-    // }
+}
 
+// helper function to get each question and its answers
+function getQA() {
+    
+    for(let i = 0; i < items.length; ++i) {
+        displayItem(items[i]);        
+    }
+}
+
+// display one question with 4 answers after div with id after-me
+function displayItem(item) {
+    let area = document.getElementById("after-me");
+    area.insertAdjacentHTML("afterend", 
+    "<div><p>Question:<p>"
+    + "<p>" + item.problem + ": </p>" 
+    + "<p>A. " + item.options.a["answer"] + "</p>" 
+    + "<p>B. " + item.options.b["answer"] + "</p>" 
+    + "<p>C. " + item.options.c["answer"] + "</p>" 
+    + "<p>D. " + item.options.d["answer"] + "</p>" 
+    + "</div>");
+}
+
+function start() {
+
+    if(localStorage.length > 0){
+        getItems();
+        getQA();
+    } else {
+        window.alert("Please go to admin and add some qeustions.");
+    }
+
+}
+
+start();

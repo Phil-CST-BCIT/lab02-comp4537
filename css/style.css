@@ -1,5 +1,9 @@
+html, body
+{
+    height: 100%;
+}
+
 body {
-	height: 100%;
     background: #5D6AF3;
     display: flex;
 	justify-content: center;
@@ -10,16 +14,10 @@ body {
 header{
     position: fixed;
     top: 70px;
-}
-
-h1{
-    font-size: 5em;
+    font-size: 2em;
 }
 
 button{
-    position: relative;
-    top: 300px;
-	margin: 20px;
     padding: 20px 40px;
     background-color: #f0f0f0;
 	border: solid 2px black;
@@ -28,19 +26,27 @@ button{
     font-size: large;
 }
 
+
+
 .back-btn{
     position: fixed;
     top: 20px;
     left: 200px;
 }
 
-/* #form{
-    width: 90%;
-} */
+button:hover, 
+.back-btn:hover, 
+#add:hover,
+#save:hover,
+#delete:hover {
+    background-color: #555555;
+    color: white;
+}
 
-label {
-    color: blanchedalmond;
-    font-size: larger;
+#box{
+    height: 100%;
+    display: block;
+    overflow: visible;
 }
 
 #problem{
@@ -52,8 +58,8 @@ label {
 .options{
     width: 100%;
     margin-top: 15px;
-
 }
+
 
 input[type=radio] {
     width: 1.5em;
@@ -71,10 +77,16 @@ input{
     margin-bottom: 20px;
 }
 
+
 #group-btns{
     display: flex;
     justify-content: center;
     margin-bottom: 25px;
+}
+
+label {
+    color: blanchedalmond;
+    font-size: larger;
 }
 
 #add,#save,#delete {
@@ -91,17 +103,13 @@ input{
     border: 2px solid #555555;
   }
 
-button:hover, 
-.back-btn:hover, 
-#add:hover,
-#save:hover,
-#delete:hover {
-    background-color: #555555;
-    color: white;
-}
+  #user-sub-btn{
+      position: fixed;
+      bottom: 20px;
+      right: 200px;
+  }
 
-ul{
-    list-style-type: none; 
-}
-
-
+  #user-questions div{
+    display: block;
+    margin-bottom: 40px;
+  }
